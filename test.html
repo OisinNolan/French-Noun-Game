@@ -1,0 +1,42 @@
+<html ng-app="myapp">
+    <head>
+        <title>Step 4</title>
+    <link href="tseczka.css" rel="stylesheet" type="text/css">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
+    <script>
+        var app = angular.module("myapp", []);
+
+        var textArray = [ 
+            "livre", 
+            "voiture",
+            "poisson",
+            "chat",
+            "baguette",
+            "ordinateur",
+            "école"
+        ];
+
+        var randomIndex = Math.floor(Math.random() * textArray.length); 
+        var randomElement = textArray[randomIndex];
+
+        app.controller('DoubleController', function($scope) {
+            $scope.double = function() { 
+                randomIndex = Math.floor(Math.random() * textArray.length); 
+                return textArray[randomIndex];
+            };
+        });
+
+    </script>
+    </head>
+    <body>
+        <section ng-view class="row">
+            <div class="col-6">
+                <div ng-controller="DoubleController">
+                    <button ng-click="double()">random</button> {{ double() }}
+                </div>
+            </div>
+        </section>
+    <script src="js/filters.js"></script>
+    </body>
+</html>
