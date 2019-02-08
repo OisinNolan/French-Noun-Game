@@ -17,16 +17,33 @@
             "école"
         ];
 
+        var dict = []; // create an empty array
+
+        dict.push({
+            word:   "livre",
+            gender: "m",
+            translation: "book"
+        },
+        {
+            word:   "chat",
+            gender: "m",
+            translation: "cat"
+        },
+        {
+            word:   "voiture",
+            gender: "f",
+            translation: "car"
+        });
+
         var randomIndex = Math.floor(Math.random() * textArray.length); 
         var randomElement = textArray[randomIndex];
 
         app.controller('DoubleController', function($scope) {
             $scope.double = function() { 
-                randomIndex = Math.floor(Math.random() * textArray.length); 
-                return textArray[randomIndex];
+                randomIndex = Math.floor(Math.random() * dict.length); 
+                return dict[randomIndex].gender;
             };
         });
-
     </script>
     </head>
     <body>
