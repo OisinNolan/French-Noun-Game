@@ -29,13 +29,15 @@
         var randomElement = dict[randomIndex].word;
 
         app.controller('controller', function($scope) {
+
+          $scope.checkGender = function(gender) {
+              return gender==dict[randomIndex].gender;
+          }
             $scope.getRandom = function() {
                 randomIndex = Math.floor(Math.random() * dict.length);
                 return dict[randomIndex].word;
             };
-            $scope.checkGender = function(gender) {
-                return gender==dict[randomIndex].gender;
-            }
+
         });
 
     </script>
@@ -43,18 +45,12 @@
     <body>
         <section ng-view class="row">
             <div class="col-6">
-<<<<<<< HEAD
-                <div ng-controller="DoubleController">
+                <div ng-controller="controller">
                     <button ng-click="checkGender("m")">le</button>
                     <button ng-click="checkGender("f")">la</button>
-                    <br>{{double()}}
-=======
-                <div ng-controller="controller">
-                    <button ng-click="gender='m'; getRandom()">le</button>
-                    <button ng-click="gender='f'; getRandom()">la</button>
-                    <br>{{checkGender(gender)}}
+                    
+
                     <br>{{getRandom()}}
->>>>>>> a111f6be7378d9203ae9367e3521f965c62034aa
                 </div>
             </div>
         </section>
