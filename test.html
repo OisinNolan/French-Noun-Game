@@ -33,7 +33,15 @@
                 randomIndex = Math.floor(Math.random() * dict.length);
                 return dict[randomIndex].word;
             };
+            $scope.checkGender = function(gender) {
+                if(gender == dict[randomIndex].gender) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
         });
+
     </script>
     </head>
     <body>
