@@ -6,9 +6,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
     <script>
         var app = angular.module("myapp", []);
-
         var dict = []; // create an empty array
-
         dict.push({
             word:   "livre",
             gender: 'm',
@@ -24,33 +22,30 @@
             gender: 'f',
             translation: "car"
         });
-
         var randomIndex = Math.floor(Math.random() * dict.length);
         var randomElement = dict[randomIndex].word;
-
+        var lastIndex;
         app.controller('controller', function($scope) {
-
-          $scope.checkGender = function(gender) {
-              return gender==dict[randomIndex].gender;
-          }
             $scope.getRandom = function() {
                 randomIndex = Math.floor(Math.random() * dict.length);
                 return dict[randomIndex].word;
             };
-
+            $scope.checkGender = function(gender) {
+                $scope.result = gender == dict[randomIndex].gender;
+            };
         });
-
     </script>
     </head>
     <body>
         <section ng-view class="row">
             <div class="col-6">
-                <div ng-controller="controller">
-                    <button ng-click="checkGender("m")">le</button>
-                    <button ng-click="checkGender("f")">la</button>
-                    
 
+                <div ng-controller="controller">
+                    <button ng-click="checkGender('m');">le</button>
+                    <button ng-click="checkGender('f');">la</button>
+                    <br>{{result}}
                     <br>{{getRandom()}}
+
                 </div>
             </div>
         </section>
