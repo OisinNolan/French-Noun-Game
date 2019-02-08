@@ -11,34 +11,30 @@
 
         dict.push({
             word:   "livre",
-            gender: "m",
+            gender: 'm',
             translation: "book"
         },
         {
             word:   "chat",
-            gender: "m",
+            gender: 'm',
             translation: "cat"
         },
         {
             word:   "voiture",
-            gender: "f",
+            gender: 'f',
             translation: "car"
         });
 
         var randomIndex = Math.floor(Math.random() * dict.length);
         var randomElement = dict[randomIndex].word;
 
-        app.controller('DoubleController', function($scope) {
-            $scope.double = function() {
+        app.controller('controller', function($scope) {
+            $scope.getRandom = function() {
                 randomIndex = Math.floor(Math.random() * dict.length);
                 return dict[randomIndex].word;
             };
             $scope.checkGender = function(gender) {
-                if(gender == dict[randomIndex].gender) {
-                    return true;
-                } else {
-                    return false;
-                }
+                return gender==dict[randomIndex].gender;
             }
         });
 
@@ -47,9 +43,11 @@
     <body>
         <section ng-view class="row">
             <div class="col-6">
-                <div ng-controller="DoubleController">
-                    <button ng-click="checkGender()">le</button>
-                    <button ng-click="checkGender()">la</button> <br>{{double()}}
+                <div ng-controller="controller">
+                    <button ng-click="gender='m'; getRandom()">le</button>
+                    <button ng-click="gender='f'; getRandom()">la</button>
+                    <br>{{checkGender(gender)}}
+                    <br>{{getRandom()}}
                 </div>
             </div>
         </section>
