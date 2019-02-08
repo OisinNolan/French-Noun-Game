@@ -6,7 +6,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
     <script>
         var app = angular.module("myapp", []);
-        
+
         var dict = []; // create an empty array
 
         dict.push({
@@ -25,13 +25,13 @@
             translation: "car"
         });
 
-        var randomIndex = Math.floor(Math.random() * textArray.length); 
-        var randomElement = textArray[randomIndex];
+        var randomIndex = Math.floor(Math.random() * dict.length); 
+        var randomElement = dict[randomIndex].word;
 
         app.controller('DoubleController', function($scope) {
             $scope.double = function() { 
                 randomIndex = Math.floor(Math.random() * dict.length); 
-                return dict[randomIndex].gender;
+                return dict[randomIndex].word;
             };
         });
     </script>
