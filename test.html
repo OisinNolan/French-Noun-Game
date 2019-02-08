@@ -48,8 +48,9 @@
         <section ng-view class="row">
             <div class="col-6">
                 <div ng-controller="DoubleController">
-                    <button ng-click="checkGender()">le</button>
-                    <button ng-click="checkGender()">la</button> <br>{{double()}}
+                    <button ng-click="checkGender("m")">le</button>
+                    <button ng-click="checkGender("f")">la</button>
+                    <br>{{double()}}
                 </div>
             </div>
         </section>
