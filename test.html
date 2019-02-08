@@ -25,12 +25,12 @@
             translation: "car"
         });
 
-        var randomIndex = Math.floor(Math.random() * dict.length); 
+        var randomIndex = Math.floor(Math.random() * dict.length);
         var randomElement = dict[randomIndex].word;
 
         app.controller('DoubleController', function($scope) {
-            $scope.double = function() { 
-                randomIndex = Math.floor(Math.random() * dict.length); 
+            $scope.double = function() {
+                randomIndex = Math.floor(Math.random() * dict.length);
                 return dict[randomIndex].word;
             };
         });
@@ -40,7 +40,8 @@
         <section ng-view class="row">
             <div class="col-6">
                 <div ng-controller="DoubleController">
-                    <button ng-click="double()">random</button> {{ double() }}
+                    <button ng-click="checkGender()">le</button>
+                    <button ng-click="checkGender()">la</button> <br>{{double()}}
                 </div>
             </div>
         </section>
