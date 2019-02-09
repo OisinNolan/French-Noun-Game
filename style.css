@@ -1,0 +1,28 @@
+.randomWord {
+    text-align: center;
+    font-size: 60px;
+}
+.result {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 25px;
+}
+.buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+.btn {
+    margin: 10px;
+}
+.container {
+    text-align: center;
+    margin-top: 10%; 
+}
+.score {
+    font-size: 30px;
+    margin-right: 10px;
+}
+.scoreChange {
+    font-size: 25px;
+    margin-right: 10px;
+}

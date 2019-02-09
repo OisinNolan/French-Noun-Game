@@ -1,64 +1,100 @@
 <html ng-app="myapp">
     <head>
-        <title>Step 4</title>
-    <link href="tseczka.css" rel="stylesheet" type="text/css">
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
-    <script>
-        var app = angular.module("myapp", []);
+        <title>French Noun Game</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link href="style.css" rel="stylesheet" type="text/css">
+        <link rel="icon" type="image/png" href="frenchFlag.png">
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
+        <script>
+            var app = angular.module("myapp", []);
 
-        var dict = []; // create an empty array
+            var dict = []; // create an empty array
 
-        dict.push({
-            word:   "livre",
-            gender: 'm',
-            translation: "book"
-        },
-        {
-            word:   "chat",
-            gender: 'm',
-            translation: "cat"
-        },
-        {
-            word:   "voiture",
-            gender: 'f',
-            translation: "car"
-        });
+            dict.push({
+                word:   "livre",
+                gender: 'm',
+                translation: "book"
+            },
+            {
+                word:   "chat",
+                gender: 'm',
+                translation: "cat"
+            },
+            {
+                word:   "voiture",
+                gender: 'f',
+                translation: "car"
+            });
 
-        var randomIndex = Math.floor(Math.random() * dict.length);
-        var randomElement = dict[randomIndex].word;
-        var lastIndex;
+            var randomIndex = Math.floor(Math.random() * dict.length);
+            var randomElement = dict[randomIndex].word;
+            var lastIndex;
 
-        app.controller('controller', function($scope) {
-            $scope.getRandom = function() {
-                randomIndex = Math.floor(Math.random() * dict.length);
-                return dict[randomIndex].word;
-            };
-            $scope.checkGender = function(gender) {
-                $scope.result = gender == dict[randomIndex].gender;
-            };
-        });
+            app.controller('controller', function($scope) {
 
-    </script>
+                //initialise variables when page is loaded for the first time
+                $scope.score = 0;
+                $(".result").fadeToggle();
+                $(".scoreChange").fadeToggle();
+
+                //function to get a random word from the list
+                $scope.getRandom = function() {
+                    randomIndex = Math.floor(Math.random() * dict.length);;
+                    return dict[randomIndex].word;
+                };
+
+                //function to check if answer is correct, and update score accordingly
+                $scope.checkGender = function(gender) {
+                    $(".result").fadeToggle();
+                    $(".scoreChange").fadeToggle();
+                    if(gender == dict[randomIndex].gender) {
+                        $scope.result = "correct";
+                        // change colour to green if correct
+                        $scope.styleObj = {
+                            "color" : "green"
+                        }
+                        $scope.scoreChange = "+1";
+                        $scope.score++;
+
+                    } else {
+                        $scope.result = "incorrect";
+                        // change colour to red if correct
+                        $scope.styleObj = {
+                            "color" : "red"
+                        }
+                        $scope.scoreChange = "-1";
+                        $scope.score--;
+                    }
+                    $(".result").fadeOut("slow");
+                    $(".scoreChange").fadeOut("slow");
+                };
+            });
+
+        </script>
     </head>
-    <body>
-        <section ng-view class="row">
-            <div class="col-6">
-<<<<<<< HEAD
-                <div ng-controller="DoubleController">
-                    <button ng-click="checkGender("m")">le</button>
-                    <button ng-click="checkGender("f")">la</button>
-                    <br>{{double()}}
-=======
-                <div ng-controller="controller">
-                    <button ng-click="checkGender('m');">le</button>
-                    <button ng-click="checkGender('f');">la</button>
-                    <br>{{result}}
-                    <br>{{getRandom()}}
->>>>>>> a111f6be7378d9203ae9367e3521f965c62034aa
+    <body ng-view>
+        <span ng-controller="controller">
+            <nav class="navbar navbar-light bg-white">
+                <a class="navbar-brand" href="#">
+                    <img src="frenchFlag.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                    French Noun Game
+                </a>
+                <span class="navbar-text">
+                    <span class="scoreChange" ng-style="styleObj">{{scoreChange}}</span>
+                    <span class="score">{{score}}</span>
+                </span>
+            </nav>
+            <div class="container">
+                <div class = "randomWord">{{getRandom()}}</div>
+                <div class = "buttons">
+                    <button ng-click="checkGender('m');" class = "btn btn-outline-primary" >le</button>
+                    <button ng-click="checkGender('f');" class = "btn btn-outline-danger" >la</button>
                 </div>
+                <div class = "result" ng-style="styleObj">{{result}}</div>
             </div>
-        </section>
+        </span>
     <script src="js/filters.js"></script>
     </body>
 </html>
