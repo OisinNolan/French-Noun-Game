@@ -1,12 +1,12 @@
 Functionality:
 - Option to show English translation
 - inreasing difficulty algorithm
-- Keep score?
+- Keep score? √
 
 Graphic design:
-- Add css file, make web page responsive for different screen sizes
-- Add css/jquery animations to make functionality more intuitive
-- bootstrap?
+- Add css file, make web page responsive for different screen sizes √
+- Add css/jquery animations to make functionality more intuitive √
+- bootstrap? √
 
 Data:
 - Add words to list (with increasing difficulty each time).
