@@ -16,7 +16,7 @@
 }
 .container {
     text-align: center;
-    margin-top: 10%; 
+    margin-top: 10%;
 }
 .score {
     font-size: 30px;
@@ -25,4 +25,8 @@
 .scoreChange {
     font-size: 25px;
     margin-right: 10px;
+}
+.translation {
+  text-decoration: none;
+  font-size: 20px;
 }

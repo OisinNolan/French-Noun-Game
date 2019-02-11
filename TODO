@@ -1,7 +1,7 @@
 Functionality:
-- Option to show English translation
+- Option to show English translation (maybe add option to hide translation? ie go back to original)
 - inreasing difficulty algorithm
-- Keep score?
+- Keep score? (make start over if score gets below zero?)
 
 Graphic design:
 - Add css file, make web page responsive for different screen sizes
