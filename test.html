@@ -8,49 +8,13 @@
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
+        <script src="dictionaryWords.js"></script>
         <script>
+
             var app = angular.module("myapp", []);
 
-            var dict = []; // create an empty array
-
-            dict.push({
-                word:   "livre",
-                gender: 'm',
-                translation: "book"
-            },
-            {
-                word:   "chat",
-                gender: 'm',
-                translation: "cat"
-            },
-            {
-                word:   "voiture",
-                gender: 'f',
-                translation: "car"
-            },
-
-            {
-                word:   "poisson",
-                gender: 'm',
-                translation: "fish"
-            },
-            {
-                word:   "chapeau",
-                gender: 'm',
-                translation: "hat"
-            },
-            {
-                word:   "ordinateur",
-                gender: 'f',
-                translation: "computer"
-            },
-            {
-                word:   "maison",
-                gender: 'f',
-                translation: "house"
-            }
-
-          );
+            var alreadySeen = [];
+            var seenCounter = 1;
 
           //use a random dictionary element to set the first vocab word displayed upon loading
             var randomIndex = Math.floor(Math.random() * dict.length);
@@ -67,15 +31,17 @@
                 //function to get a random word from the list
                 $scope.getRandom = function() {
                     randomIndex = Math.floor(Math.random() * dict.length);;
-                    $scope.random = dict[randomIndex].word;
-                    //set the previous translation back to original text
-                    $scope.translation = "English Translation";
+
+                      $scope.random = dict[randomIndex].word;
+                      //set the previous translation back to original text
+                      $scope.translation = "English Translation";
+
                 };
 
                 //function to get translation of a word
                 $scope.getTranslation = function() {
                   $scope.translation = dict[randomIndex].translation;
-                }
+                };
 
                 //function to check if answer is correct, and update score accordingly
                 $scope.checkGender = function(gender) {
@@ -102,6 +68,12 @@
                     $(".result").fadeOut("slow");
                     $(".scoreChange").fadeOut("slow");
                 };
+
+                //function to stre words that have already come up
+                $scope.addToSeen = function() {
+                  alreadySeen[randomIndex] = 1;
+                  seenCounter++;
+                };
             });
 
         </script>
@@ -121,8 +93,8 @@
             <div class="container">
                 <div class = "randomWord">{{random}}</div>
                 <div class = "buttons">
-                    <button ng-click="checkGender('m'); getRandom();" class = "btn btn-outline-primary" >le</button>
-                    <button ng-click="checkGender('f'); getRandom();" class = "btn btn-outline-danger" >la</button>
+                    <button ng-click="checkGender('m'); addToSeen(); getRandom();" class = "btn btn-outline-primary" >le</button>
+                    <button ng-click="checkGender('f'); addToSeen(); getRandom();" class = "btn btn-outline-danger" >la</button>
                 </div>
                 <a ng-click="getTranslation();" class="translation">{{translation}}</a>
                 <div class = "result" ng-style="styleObj">{{result}}</div>
