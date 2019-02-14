@@ -10,10 +10,30 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
         <script src="dictionaryWords.js"></script>
-
+        <script>
+            var app = angular.module("myapp", []);
+            app.controller('controller', function($scope) {
+                $scope.finalScore = sessionStorage.getItem('finalScore');
+            });
+        </script>
     </head>
-    <body >
-      <p>Congrats you finished!</p>
-      <p><a href ="index.html"><button>Reload Game</button></a></p>
+    <body>
+        <span ng-controller="controller">
+            <nav class="navbar navbar-light bg-white">
+                <a class="navbar-brand" href="#">
+                    <img src="frenchFlag.png" width="30" height="30" class="d-inline-block align-top" alt="French flag">
+                    Jeu de Genre
+                </a>
+                <span class="navbar-text">
+                    <span class="scoreChange" ng-style="styleObj"></span>
+                    <span class="score"></span>
+                </span>
+            </nav>
+            <div class = "mainContainer">
+                <div class = "endGameText">Congrats you finished!</div>
+                <div class = "finalScoreText">Your final score was {{finalScore}}</div>
+                <div class = "endGameButton"> <a href ="index.html"><button class = "btn btn-light">Reload Game</button></a></div>
+            </div>
+        </span>
     </body>
 </html>

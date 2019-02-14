@@ -1,5 +1,5 @@
 body {
-  background-color : #a3d7f7;
+  background-color: rgb(199, 227, 255);
 }
 .randomWord {
     text-align: center;
@@ -31,10 +31,27 @@ body {
 }
 .translation {
   text-decoration: none;
-  font-size: 20px;
+  font-size: 15px;
+  margin-top: 30px;
 }
-.translation:hover{
-  text-decoration: none;
-  font-size: 20px;
-  box-shadow: 0 7px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+.endGameText {
+    margin-top: 10%;
+    font-size: 60px;
+}
+.endGameButton {
+    margin-top: 20px;
+}
+.finalScoreText {
+    margin-top: 20px;
+    font-size: 25px;
+}
+.mainContainer {
+    margin: 10%;
+    text-align: center;
+}
+.navbar {
+    -webkit-box-shadow: 10px 10px 217px -28px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 217px -28px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 217px -28px rgba(0,0,0,0.75);
+    height: 10%;
 }

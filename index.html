@@ -77,22 +77,15 @@
                     $(".scoreChange").fadeOut("slow");
                 };
 
-                //function to stre words that have already come up
+                //function to store words that have already come up
                 $scope.addToSeen = function() {
                   alreadySeen[randomIndex] = 1;
                   $scope.seenCounter++;
                 };
 
                 $scope.endGame = function() {
-                  /*
-                  document.getElementById('endScreen').innerHTML = "<p>content</p>";
-                  var content = document.getElementById('endScreen').innerHTML;
-                  alert(content);
-                  document.getElementById('endScreen').innerHTML = "";
-                  */
-                  alert("finished");
-                  location.replace("endScreen.html");
-                  window.location.reload();
+                    sessionStorage.setItem('finalScore', $scope.score);
+                    window.location.href = "endScreen.html";
                 }
 
             });
@@ -114,10 +107,10 @@
             <div class="container">
                 <div class = "randomWord">{{random}}</div>
                 <div class = "buttons">
-                    <button ng-click="checkGender('m'); getRandom();" class = "btn btn-outline-primary" >le</button>
-                    <button ng-click="checkGender('f'); getRandom();" class = "btn btn-outline-danger" >la</button>
+                    <button ng-click="checkGender('m'); getRandom();" class = "btn btn-primary" >le</button>
+                    <button ng-click="checkGender('f'); getRandom();" class = "btn btn-danger" >la</button>
                 </div>
-                <a ng-click="getTranslation();" class="translation">{{translation}}</a>
+                <button ng-click="getTranslation();" class="translation btn btn-light">{{translation}}</button>
                 <div class = "result" ng-style="styleObj">{{result}}</div>
             </div>
             <div id="endScreen"></div>
