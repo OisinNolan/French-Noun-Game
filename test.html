@@ -15,20 +15,19 @@
             var app = angular.module("myapp", []);
 
             var alreadySeen = [];
-            var seenCounter = 1;
-
           //use a random dictionary element to set the first vocab word displayed upon loading
             var randomIndex = Math.floor(Math.random() * dict.length);
 
             app.controller('controller', function($scope) {
 
                 //initialise variables when page is loaded for the first time
+                $scope.seenCounter = 1;
                 $scope.score = 0;
                 $scope.random = dict[randomIndex].word;
                 $scope.translation = "English Translation";
                 $(".result").fadeToggle();
                 $(".scoreChange").fadeToggle();
-
+/*
                 //function to get a random word from the list
                 $scope.getRandom = function() {
                     randomIndex = Math.floor(Math.random() * dict.length);;
@@ -38,6 +37,22 @@
                       $scope.translation = "English Translation";
 
                 };
+*/
+                //function to get a random word from the list
+                $scope.getRandom = function() {
+                  do {
+                    randomIndex = Math.floor(Math.random() * dict.length);
+
+                  } while($scope.seenCounter != alreadySeen.length && alreadySeen[randomIndex] == 1);
+
+                      $scope.random = dict[randomIndex].word;
+                      //set the previous translation back to original text
+                      $scope.translation = "English Translation";
+                      $scope.addToSeen();
+                      $scope.printArray();
+
+                };
+
 
                 //function to get translation of a word
                 $scope.getTranslation = function() {
@@ -73,7 +88,13 @@
                 //function to stre words that have already come up
                 $scope.addToSeen = function() {
                   alreadySeen[randomIndex] = 1;
-                  seenCounter++;
+                  $scope.seenCounter++;
+                };
+
+                $scope.printArray = function() {
+
+                    console.log(alreadySeen[randomIndex]);
+
                 };
             });
 
@@ -87,6 +108,7 @@
                     Jeu de Genre
                 </a>
                 <span class="navbar-text">
+                    <span class="test" ng-style="styleObj">counter:{{seenCounter}}<br></span>
                     <span class="scoreChange" ng-style="styleObj">{{scoreChange}}</span>
                     <span class="score">{{score}}</span>
                 </span>
@@ -94,8 +116,8 @@
             <div class="container">
                 <div class = "randomWord">{{random}}</div>
                 <div class = "buttons">
-                    <button ng-click="checkGender('m'); addToSeen(); getRandom();" class = "btn btn-outline-primary" >le</button>
-                    <button ng-click="checkGender('f'); addToSeen(); getRandom();" class = "btn btn-outline-danger" >la</button>
+                    <button ng-click="checkGender('m'); getRandom();" class = "btn btn-outline-primary" >le</button>
+                    <button ng-click="checkGender('f'); getRandom();" class = "btn btn-outline-danger" >la</button>
                 </div>
                 <a ng-click="getTranslation();" class="translation">{{translation}}</a>
                 <div class = "result" ng-style="styleObj">{{result}}</div>
