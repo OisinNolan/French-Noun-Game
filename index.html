@@ -27,17 +27,7 @@
                 $scope.translation = "English Translation";
                 $(".result").fadeToggle();
                 $(".scoreChange").fadeToggle();
-/*
-                //function to get a random word from the list
-                $scope.getRandom = function() {
-                    randomIndex = Math.floor(Math.random() * dict.length);;
 
-                      $scope.random = dict[randomIndex].word;
-                      //set the previous translation back to original text
-                      $scope.translation = "English Translation";
-
-                };
-*/
                 //function to get a random word from the list
                 $scope.getRandom = function() {
                   if ($scope.seenCounter != alreadySeen.length) {
@@ -53,7 +43,6 @@
                   } else {
                     $scope.endGame();
                   }
-
                 };
 
 
