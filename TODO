@@ -3,7 +3,7 @@ Functionality:
 - inreasing difficulty algorithm
 - Keep score? (make start over if score gets below zero?)
 - Algorithm that prevents the same word from being chosen twice in a row
-    (store lastIndex and make sure current is not equal to last?) √
+    (store lastIndex and make sure current is not equal to last?) --something like a hashmap would be good for that
 - Change language option
 
 Graphic design:
