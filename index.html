@@ -27,37 +27,9 @@
                 $scope.translation = "English Translation";
                 $(".result").fadeToggle();
                 $(".scoreChange").fadeToggle();
-/*
+
                 //function to get a random word from the list
                 $scope.getRandom = function() {
-                    randomIndex = Math.floor(Math.random() * dict.length);;
-
-                      $scope.random = dict[randomIndex].word;
-                      //set the previous translation back to original text
-                      $scope.translation = "English Translation";
-
-                };
-*/
-                //function to get a random word from the list
-                $scope.getRandom = function() {
-<<<<<<< HEAD
-                  var count = 0;
-                  var found = false;
-                  while(count <= alreadySeen.length && found)
-                  {
-                    randomIndex = Math.floor(Math.random() * dict.length);
-                    if(alreadySeen[randomIndex] == 0)
-                    {
-                      found = true;
-                    }
-                      $scope.random = dict[randomIndex].word;
-                      //set the previous translation back to original text
-                      $scope.translation = "English Translation";
-                      $scope.addToSeen();
-                      $scope.printArray();
-                      count++;
-                    }
-=======
                   if ($scope.seenCounter != alreadySeen.length) {
                     do {
                       randomIndex = Math.floor(Math.random() * dict.length);
@@ -71,8 +43,6 @@
                   } else {
                     $scope.endGame();
                   }
-
->>>>>>> a4a3bb13b4a9fa5a3f79bdc7af246dbcd093183e
                 };
 
 
@@ -144,6 +114,6 @@
             </div>
         </span>
     <script src="js/filters.js"></script>
-    <noscript>Sorry, your browser does not support JavaScript :()!</noscript>
+    <noscript>Sorry, your browser does not support JavaScript!</noscript>
     </body>
 </html>
