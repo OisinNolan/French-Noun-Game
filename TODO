@@ -1,5 +1,5 @@
 Functionality:
-- Option to show English translation (maybe add option to hide translation? ie go back to original)
+- Option to show English translation (maybe add option to hide translation? ie go back to original)√
 - inreasing difficulty algorithm
 - Keep score? (make start over if score gets below zero?)
 - Algorithm that prevents the same word from being chosen twice in a row √

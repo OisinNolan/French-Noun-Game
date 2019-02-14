@@ -23,6 +23,7 @@
                 //initialise variables when page is loaded for the first time
                 $scope.seenCounter = 1;
                 $scope.score = 0;
+                $scope.translated = false;
                 $scope.random = dict[randomIndex].word;
                 $scope.translation = "English Translation";
                 $(".result").fadeToggle();
@@ -48,7 +49,16 @@
 
                 //function to get translation of a word
                 $scope.getTranslation = function() {
-                  $scope.translation = dict[randomIndex].translation;
+                  if($scope.translated)
+                  {
+                    $scope.translation = "English Translation";
+                    $scope.translated = false;
+                  }
+                  else
+                  {
+                    $scope.translation = dict[randomIndex].translation;
+                    $scope.translated = true;
+                  }
                 };
 
                 //function to check if answer is correct, and update score accordingly
