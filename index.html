@@ -40,6 +40,7 @@
 */
                 //function to get a random word from the list
                 $scope.getRandom = function() {
+<<<<<<< HEAD
                   var count = 0;
                   var found = false;
                   while(count <= alreadySeen.length && found)
@@ -56,6 +57,22 @@
                       $scope.printArray();
                       count++;
                     }
+=======
+                  if ($scope.seenCounter != alreadySeen.length) {
+                    do {
+                      randomIndex = Math.floor(Math.random() * dict.length);
+
+                    } while(alreadySeen[randomIndex] == 1);
+
+                        $scope.random = dict[randomIndex].word;
+                        //set the previous translation back to original text
+                        $scope.translation = "English Translation";
+                        $scope.addToSeen();
+                  } else {
+                    $scope.endGame();
+                  }
+
+>>>>>>> a4a3bb13b4a9fa5a3f79bdc7af246dbcd093183e
                 };
 
 
@@ -96,11 +113,10 @@
                   $scope.seenCounter++;
                 };
 
-                $scope.printArray = function() {
+                $scope.endGame = function() {
+                  alert("You have finished the game!");
+                }
 
-                    console.log(alreadySeen[randomIndex]);
-
-                };
             });
 
         </script>
@@ -113,7 +129,6 @@
                     Jeu de Genre
                 </a>
                 <span class="navbar-text">
-                    <span class="test" ng-style="styleObj">counter:{{seenCounter}}<br></span>
                     <span class="scoreChange" ng-style="styleObj">{{scoreChange}}</span>
                     <span class="score">{{score}}</span>
                 </span>
