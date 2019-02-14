@@ -84,7 +84,15 @@
                 };
 
                 $scope.endGame = function() {
-                  alert("You have finished the game!");
+                  /*
+                  document.getElementById('endScreen').innerHTML = "<p>content</p>";
+                  var content = document.getElementById('endScreen').innerHTML;
+                  alert(content);
+                  document.getElementById('endScreen').innerHTML = "";
+                  */
+                  alert("finished");
+                  location.replace("endScreen.html");
+                  window.location.reload();
                 }
 
             });
@@ -112,6 +120,7 @@
                 <a ng-click="getTranslation();" class="translation">{{translation}}</a>
                 <div class = "result" ng-style="styleObj">{{result}}</div>
             </div>
+            <div id="endScreen"></div>
         </span>
     <script src="js/filters.js"></script>
     <noscript>Sorry, your browser does not support JavaScript!</noscript>
