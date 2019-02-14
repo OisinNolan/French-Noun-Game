@@ -13,8 +13,8 @@
         <script>
 
             var app = angular.module("myapp", []);
-
             var alreadySeen = [];
+            alreadySeen.length = dict.length;
           //use a random dictionary element to set the first vocab word displayed upon loading
             var randomIndex = Math.floor(Math.random() * dict.length);
 
@@ -40,6 +40,24 @@
 */
                 //function to get a random word from the list
                 $scope.getRandom = function() {
+<<<<<<< HEAD
+                  var count = 0;
+                  var found = false;
+                  while(count <= alreadySeen.length && found)
+                  {
+                    randomIndex = Math.floor(Math.random() * dict.length);
+                    if(alreadySeen[randomIndex] == 0)
+                    {
+                      found = true;
+                    }
+                      $scope.random = dict[randomIndex].word;
+                      //set the previous translation back to original text
+                      $scope.translation = "English Translation";
+                      $scope.addToSeen();
+                      $scope.printArray();
+                      count++;
+                    }
+=======
                   if ($scope.seenCounter != alreadySeen.length) {
                     do {
                       randomIndex = Math.floor(Math.random() * dict.length);
@@ -54,6 +72,7 @@
                     $scope.endGame();
                   }
 
+>>>>>>> a4a3bb13b4a9fa5a3f79bdc7af246dbcd093183e
                 };
 
 
