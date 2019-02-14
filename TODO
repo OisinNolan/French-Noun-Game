@@ -2,7 +2,7 @@ Functionality:
 - Option to show English translation (maybe add option to hide translation? ie go back to original)
 - inreasing difficulty algorithm
 - Keep score? (make start over if score gets below zero?)
-- Algorithm that prevents the same word from being chosen twice in a row
+- Algorithm that prevents the same word from being chosen twice in a row √
     (store lastIndex and make sure current is not equal to last?) --something like a hashmap would be good for that
 - Change language option
 
@@ -10,12 +10,12 @@ Graphic design:
 - Add css file, make web page responsive for different screen sizes √
 - Add css/jquery animations to make functionality more intuitive √
 - bootstrap? √
-- Design for English translation? (Maybe bootstrap button)
+- Design for English translation? (Maybe bootstrap button) √
 
 Data:
 - Add words to list (with increasing difficulty each time).
 - Use json or something else to put the dictionary array in a different file √
 
 Misc.:
-- Come up with name for app
-- Host site on github (Oisin It Must Be You - https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/)
+- Come up with name for app √
+- Host site on github (Oisin It Must Be You) √
