@@ -13,7 +13,7 @@
         <script>
             var app = angular.module("myapp", []);
             app.controller('controller', function($scope) {
-                $scope.finalScore = sessionStorage.getItem('finalScore');
+               $scope.finalScore = localStorage.getItem("finalScore");
             });
         </script>
     </head>

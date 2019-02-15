@@ -1,9 +1,11 @@
 Functionality:
-- Option to show English translation (maybe add option to hide translation? ie go back to original)
-- inreasing difficulty algorithm
+- Option to show English translation (maybe add option to hide translation? ie go back to original)√
+- increasing difficulty algorithm  --have a possible solution for this, will show you tomorrow (Sophie)
 - Keep score? (make start over if score gets below zero?)
     (store lastIndex and make sure current is not equal to last?) --something like a hashmap would be good for that
 - Change language option
+- when you answer multiple questions in quick succession, the 'incorrect'/'correct' button
+  fades out multiple times all in one go afterwards. Maybe change that?
 
 Graphic design:
 
