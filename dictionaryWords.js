@@ -71,4 +71,4 @@ dict.push(
 {word:  "coude",     gender: 'm',    translation: "elbow"},
 {word:  "dinosaure",     gender: 'm',    translation: "dinosaur"},
 {word:  "murmure",     gender: 'm',    translation: "whisper"},
-) ;
+);

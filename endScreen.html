@@ -10,15 +10,10 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
         <script src="dictionaryWords.js"></script>
-        <script>
-            var app = angular.module("myapp", []);
-            app.controller('controller', function($scope) {
-               $scope.finalScore = sessionStorage.getItem("finalScore");
-            });
-        </script>
+        <script src="app.js"></script>
     </head>
     <body>
-        <span ng-controller="controller">
+        <span ng-controller="endController">
             <nav class="navbar navbar-light bg-white">
                 <a class="navbar-brand" href="#">
                     <img src="frenchFlag.png" width="30" height="30" class="d-inline-block align-top" alt="French flag">
