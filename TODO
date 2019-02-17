@@ -1,6 +1,5 @@
 Functionality:
 - Option to show English translation (maybe add option to hide translation? ie go back to original)√
-- increasing difficulty algorithm  --have a possible solution for this, will show you tomorrow (Sophie)
 - Keep score? (make start over if score gets below zero?)
     (store lastIndex and make sure current is not equal to last?) --something like a hashmap would be good for that
 - Change language option
@@ -10,11 +9,9 @@ Functionality:
 Graphic design:
 
 Data:
-- Add words to list (with increasing difficulty each time).
+- Rearrange words so that they are in order of difficult to hard.
 
 Misc.:
-
-Slowly increasing difficulty
 points =/= lives
 if points == 0 && wrong, lives -= 1;
 
