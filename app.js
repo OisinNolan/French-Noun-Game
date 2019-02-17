@@ -1,8 +1,9 @@
 var app = angular.module("myapp", []);
 var alreadySeen = [];
 alreadySeen.length = dict.length;
+dictSize = dict.length * 0.1;
 //use a random dictionary element to set the first vocab word displayed upon loading
-var randomIndex = Math.floor(Math.random() * dict.length);
+var randomIndex = Math.floor(Math.random() * dictSize);
 
 app.controller('controller', function($scope) {
 
@@ -18,17 +19,15 @@ app.controller('controller', function($scope) {
     //function to get a random word from the list
     $scope.getRandom = function() {
         if ($scope.seenCounter != alreadySeen.length) {
-        do {
-            randomIndex = Math.floor(Math.random() * dict.length);
-
-        } while(alreadySeen[randomIndex] == 1);
-
+            do {
+                randomIndex = Math.floor(Math.random() * dictSize);
+            } while(alreadySeen[randomIndex] == 1);
             $scope.random = dict[randomIndex].word;
             //set the previous translation back to original text
             $scope.translation = "English Translation";
             $scope.addToSeen();
         } else {
-        $scope.endGame();
+            $scope.endGame();
         }
     };
 
@@ -37,13 +36,13 @@ app.controller('controller', function($scope) {
     $scope.getTranslation = function() {
         if($scope.translated)
         {
-        $scope.translation = "English Translation";
-        $scope.translated = false;
+            $scope.translation = "English Translation";
+            $scope.translated = false;
         }
         else
         {
-        $scope.translation = dict[randomIndex].translation;
-        $scope.translated = true;
+            $scope.translation = dict[randomIndex].translation;
+            $scope.translated = true;
         }
     };
 
@@ -77,6 +76,9 @@ app.controller('controller', function($scope) {
     $scope.addToSeen = function() {
         alreadySeen[randomIndex] = 1;
         $scope.seenCounter++;
+        if(dictSize < dict.length) {
+            dictSize++;
+        }
     };
 
     $scope.endGame = function() {
